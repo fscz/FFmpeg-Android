@@ -1,0 +1,225 @@
+x264 configure script
+Command line options: "--prefix=/Users/fschuetz/Dropbox/devel/android/FFMpeg/jni/x264/../ffmpeg-build/x86" "--host=x86-linux" "--enable-static" "--disable-asm"
+
+checking whether /opt/android-ndk-r8e//toolchains/x86-4.4.3/prebuilt/darwin-x86_64/bin/i686-linux-android-gcc --sysroot=/opt/android-ndk-r8e//platforms/android-9/arch-x86/ works... yes
+checking whether /opt/android-ndk-r8e//toolchains/x86-4.4.3/prebuilt/darwin-x86_64/bin/i686-linux-android-gcc --sysroot=/opt/android-ndk-r8e//platforms/android-9/arch-x86/ supports for( int i = 0; i < 9; i++ ); with -std=gnu99... yes
+checking for pthread.h... no
+Failed commandline was:
+--------------------------------------------------
+/opt/android-ndk-r8e//toolchains/x86-4.4.3/prebuilt/darwin-x86_64/bin/i686-linux-android-gcc --sysroot=/opt/android-ndk-r8e//platforms/android-9/arch-x86/ conftest.c -m32 -Wall -I. -I$(SRCPATH) -std=gnu99 -lpthread  -Wl,-rpath-link=/opt/android-ndk-r8e//platforms/android-9/arch-x86//usr/lib -L/opt/android-ndk-r8e//platforms/android-9/arch-x86//usr/lib  -lc -lm -ldl -llog -lm -o conftest
+/opt/android-ndk-r8e//toolchains/x86-4.4.3/prebuilt/darwin-x86_64/bin/../lib/gcc/i686-linux-android/4.4.3/../../../../i686-linux-android/bin/ld: cannot find -lpthread
+collect2: ld returned 1 exit status
+--------------------------------------------------
+Failed program was:
+--------------------------------------------------
+#include <pthread.h>
+int main () {  return 0; }
+--------------------------------------------------
+checking for return log2f(2); in math.h... no
+Failed commandline was:
+--------------------------------------------------
+/opt/android-ndk-r8e//toolchains/x86-4.4.3/prebuilt/darwin-x86_64/bin/i686-linux-android-gcc --sysroot=/opt/android-ndk-r8e//platforms/android-9/arch-x86/ conftest.c -m32 -Wall -I. -I$(SRCPATH) -std=gnu99 -Werror  -Wl,-rpath-link=/opt/android-ndk-r8e//platforms/android-9/arch-x86//usr/lib -L/opt/android-ndk-r8e//platforms/android-9/arch-x86//usr/lib  -lc -lm -ldl -llog -lm -o conftest
+cc1: warnings being treated as errors
+conftest.c: In function 'main':
+conftest.c:2: error: implicit declaration of function 'log2f'
+conftest.c:2: error: incompatible implicit declaration of built-in function 'log2f'
+--------------------------------------------------
+Failed program was:
+--------------------------------------------------
+#include <math.h>
+int main () { return log2f(2); return 0; }
+--------------------------------------------------
+checking for MADV_HUGEPAGE; in sys/mman.h... yes
+checking for sws_init_context(0,0,0); in libswscale/swscale.h... no
+Failed commandline was:
+--------------------------------------------------
+/opt/android-ndk-r8e//toolchains/x86-4.4.3/prebuilt/darwin-x86_64/bin/i686-linux-android-gcc --sysroot=/opt/android-ndk-r8e//platforms/android-9/arch-x86/ conftest.c -m32 -Wall -I. -I$(SRCPATH) -std=gnu99  -lswscale -lavutil  -Wl,-rpath-link=/opt/android-ndk-r8e//platforms/android-9/arch-x86//usr/lib -L/opt/android-ndk-r8e//platforms/android-9/arch-x86//usr/lib  -lc -lm -ldl -llog -lm -o conftest
+conftest.c:1:32: error: libswscale/swscale.h: No such file or directory
+conftest.c: In function 'main':
+conftest.c:2: warning: implicit declaration of function 'sws_init_context'
+--------------------------------------------------
+Failed program was:
+--------------------------------------------------
+#include <libswscale/swscale.h>
+int main () { sws_init_context(0,0,0); return 0; }
+--------------------------------------------------
+checking for -lpostproc... no
+Failed commandline was:
+--------------------------------------------------
+/opt/android-ndk-r8e//toolchains/x86-4.4.3/prebuilt/darwin-x86_64/bin/i686-linux-android-gcc --sysroot=/opt/android-ndk-r8e//platforms/android-9/arch-x86/ conftest.c -m32 -Wall -I. -I$(SRCPATH) -std=gnu99 -lpostproc  -Wl,-rpath-link=/opt/android-ndk-r8e//platforms/android-9/arch-x86//usr/lib -L/opt/android-ndk-r8e//platforms/android-9/arch-x86//usr/lib  -lc -lm -ldl -llog -lm -o conftest
+/opt/android-ndk-r8e//toolchains/x86-4.4.3/prebuilt/darwin-x86_64/bin/../lib/gcc/i686-linux-android/4.4.3/../../../../i686-linux-android/bin/ld: cannot find -lpostproc
+collect2: ld returned 1 exit status
+--------------------------------------------------
+Failed program was:
+--------------------------------------------------
+int main () {  return 0; }
+--------------------------------------------------
+checking for -lavcodec... no
+Failed commandline was:
+--------------------------------------------------
+/opt/android-ndk-r8e//toolchains/x86-4.4.3/prebuilt/darwin-x86_64/bin/i686-linux-android-gcc --sysroot=/opt/android-ndk-r8e//platforms/android-9/arch-x86/ conftest.c -m32 -Wall -I. -I$(SRCPATH) -std=gnu99 -lavcodec  -Wl,-rpath-link=/opt/android-ndk-r8e//platforms/android-9/arch-x86//usr/lib -L/opt/android-ndk-r8e//platforms/android-9/arch-x86//usr/lib  -lc -lm -ldl -llog -lm -o conftest
+/opt/android-ndk-r8e//toolchains/x86-4.4.3/prebuilt/darwin-x86_64/bin/../lib/gcc/i686-linux-android/4.4.3/../../../../i686-linux-android/bin/ld: cannot find -lavcodec
+collect2: ld returned 1 exit status
+--------------------------------------------------
+Failed program was:
+--------------------------------------------------
+int main () {  return 0; }
+--------------------------------------------------
+checking for -lavcore... no
+Failed commandline was:
+--------------------------------------------------
+/opt/android-ndk-r8e//toolchains/x86-4.4.3/prebuilt/darwin-x86_64/bin/i686-linux-android-gcc --sysroot=/opt/android-ndk-r8e//platforms/android-9/arch-x86/ conftest.c -m32 -Wall -I. -I$(SRCPATH) -std=gnu99 -lavcore  -Wl,-rpath-link=/opt/android-ndk-r8e//platforms/android-9/arch-x86//usr/lib -L/opt/android-ndk-r8e//platforms/android-9/arch-x86//usr/lib  -lc -lm -ldl -llog -lm -o conftest
+/opt/android-ndk-r8e//toolchains/x86-4.4.3/prebuilt/darwin-x86_64/bin/../lib/gcc/i686-linux-android/4.4.3/../../../../i686-linux-android/bin/ld: cannot find -lavcore
+collect2: ld returned 1 exit status
+--------------------------------------------------
+Failed program was:
+--------------------------------------------------
+int main () {  return 0; }
+--------------------------------------------------
+checking for -lswscale... no
+Failed commandline was:
+--------------------------------------------------
+/opt/android-ndk-r8e//toolchains/x86-4.4.3/prebuilt/darwin-x86_64/bin/i686-linux-android-gcc --sysroot=/opt/android-ndk-r8e//platforms/android-9/arch-x86/ conftest.c -m32 -Wall -I. -I$(SRCPATH) -std=gnu99 -lswscale  -Wl,-rpath-link=/opt/android-ndk-r8e//platforms/android-9/arch-x86//usr/lib -L/opt/android-ndk-r8e//platforms/android-9/arch-x86//usr/lib  -lc -lm -ldl -llog -lm -o conftest
+/opt/android-ndk-r8e//toolchains/x86-4.4.3/prebuilt/darwin-x86_64/bin/../lib/gcc/i686-linux-android/4.4.3/../../../../i686-linux-android/bin/ld: cannot find -lswscale
+collect2: ld returned 1 exit status
+--------------------------------------------------
+Failed program was:
+--------------------------------------------------
+int main () {  return 0; }
+--------------------------------------------------
+checking for -lavutil... no
+Failed commandline was:
+--------------------------------------------------
+/opt/android-ndk-r8e//toolchains/x86-4.4.3/prebuilt/darwin-x86_64/bin/i686-linux-android-gcc --sysroot=/opt/android-ndk-r8e//platforms/android-9/arch-x86/ conftest.c -m32 -Wall -I. -I$(SRCPATH) -std=gnu99 -lavutil  -Wl,-rpath-link=/opt/android-ndk-r8e//platforms/android-9/arch-x86//usr/lib -L/opt/android-ndk-r8e//platforms/android-9/arch-x86//usr/lib  -lc -lm -ldl -llog -lm -o conftest
+/opt/android-ndk-r8e//toolchains/x86-4.4.3/prebuilt/darwin-x86_64/bin/../lib/gcc/i686-linux-android/4.4.3/../../../../i686-linux-android/bin/ld: cannot find -lavutil
+collect2: ld returned 1 exit status
+--------------------------------------------------
+Failed program was:
+--------------------------------------------------
+int main () {  return 0; }
+--------------------------------------------------
+checking for -lm... yes
+checking for -lz... yes
+checking for -lbz2... no
+Failed commandline was:
+--------------------------------------------------
+/opt/android-ndk-r8e//toolchains/x86-4.4.3/prebuilt/darwin-x86_64/bin/i686-linux-android-gcc --sysroot=/opt/android-ndk-r8e//platforms/android-9/arch-x86/ conftest.c -m32 -Wall -I. -I$(SRCPATH) -std=gnu99 -lbz2  -Wl,-rpath-link=/opt/android-ndk-r8e//platforms/android-9/arch-x86//usr/lib -L/opt/android-ndk-r8e//platforms/android-9/arch-x86//usr/lib  -lc -lm -ldl -llog -lm -o conftest
+/opt/android-ndk-r8e//toolchains/x86-4.4.3/prebuilt/darwin-x86_64/bin/../lib/gcc/i686-linux-android/4.4.3/../../../../i686-linux-android/bin/ld: cannot find -lbz2
+collect2: ld returned 1 exit status
+--------------------------------------------------
+Failed program was:
+--------------------------------------------------
+int main () {  return 0; }
+--------------------------------------------------
+checking for -lavifil32... no
+Failed commandline was:
+--------------------------------------------------
+/opt/android-ndk-r8e//toolchains/x86-4.4.3/prebuilt/darwin-x86_64/bin/i686-linux-android-gcc --sysroot=/opt/android-ndk-r8e//platforms/android-9/arch-x86/ conftest.c -m32 -Wall -I. -I$(SRCPATH) -std=gnu99 -lavifil32  -Wl,-rpath-link=/opt/android-ndk-r8e//platforms/android-9/arch-x86//usr/lib -L/opt/android-ndk-r8e//platforms/android-9/arch-x86//usr/lib  -lc -lm -ldl -llog -lm -o conftest
+/opt/android-ndk-r8e//toolchains/x86-4.4.3/prebuilt/darwin-x86_64/bin/../lib/gcc/i686-linux-android/4.4.3/../../../../i686-linux-android/bin/ld: cannot find -lavifil32
+collect2: ld returned 1 exit status
+--------------------------------------------------
+Failed program was:
+--------------------------------------------------
+int main () {  return 0; }
+--------------------------------------------------
+checking for -lws2_32... no
+Failed commandline was:
+--------------------------------------------------
+/opt/android-ndk-r8e//toolchains/x86-4.4.3/prebuilt/darwin-x86_64/bin/i686-linux-android-gcc --sysroot=/opt/android-ndk-r8e//platforms/android-9/arch-x86/ conftest.c -m32 -Wall -I. -I$(SRCPATH) -std=gnu99 -lws2_32  -Wl,-rpath-link=/opt/android-ndk-r8e//platforms/android-9/arch-x86//usr/lib -L/opt/android-ndk-r8e//platforms/android-9/arch-x86//usr/lib  -lc -lm -ldl -llog -lm -o conftest
+/opt/android-ndk-r8e//toolchains/x86-4.4.3/prebuilt/darwin-x86_64/bin/../lib/gcc/i686-linux-android/4.4.3/../../../../i686-linux-android/bin/ld: cannot find -lws2_32
+collect2: ld returned 1 exit status
+--------------------------------------------------
+Failed program was:
+--------------------------------------------------
+int main () {  return 0; }
+--------------------------------------------------
+checking for avformat_close_input(0); in libavformat/avformat.h... no
+Failed commandline was:
+--------------------------------------------------
+/opt/android-ndk-r8e//toolchains/x86-4.4.3/prebuilt/darwin-x86_64/bin/i686-linux-android-gcc --sysroot=/opt/android-ndk-r8e//platforms/android-9/arch-x86/ conftest.c -m32 -Wall -I. -I$(SRCPATH) -std=gnu99  -L. -lavformat -lm -lz  -Wl,-rpath-link=/opt/android-ndk-r8e//platforms/android-9/arch-x86//usr/lib -L/opt/android-ndk-r8e//platforms/android-9/arch-x86//usr/lib  -lc -lm -ldl -llog -lm -o conftest
+conftest.c:1:34: error: libavformat/avformat.h: No such file or directory
+conftest.c: In function 'main':
+conftest.c:2: warning: implicit declaration of function 'avformat_close_input'
+--------------------------------------------------
+Failed program was:
+--------------------------------------------------
+#include <libavformat/avformat.h>
+int main () { avformat_close_input(0); return 0; }
+--------------------------------------------------
+checking for FFMS_DestroyVideoSource(0); in ffms.h... no
+Failed commandline was:
+--------------------------------------------------
+/opt/android-ndk-r8e//toolchains/x86-4.4.3/prebuilt/darwin-x86_64/bin/i686-linux-android-gcc --sysroot=/opt/android-ndk-r8e//platforms/android-9/arch-x86/ conftest.c -m32 -Wall -I. -I$(SRCPATH) -std=gnu99  -lffms2  -Wl,-rpath-link=/opt/android-ndk-r8e//platforms/android-9/arch-x86//usr/lib -L/opt/android-ndk-r8e//platforms/android-9/arch-x86//usr/lib  -lc -lm -ldl -llog -lm -o conftest
+conftest.c:1:18: error: ffms.h: No such file or directory
+conftest.c: In function 'main':
+conftest.c:2: warning: implicit declaration of function 'FFMS_DestroyVideoSource'
+--------------------------------------------------
+Failed program was:
+--------------------------------------------------
+#include <ffms.h>
+int main () { FFMS_DestroyVideoSource(0); return 0; }
+--------------------------------------------------
+checking for FFMS_DestroyVideoSource(0); in ffms.h... no
+Failed commandline was:
+--------------------------------------------------
+/opt/android-ndk-r8e//toolchains/x86-4.4.3/prebuilt/darwin-x86_64/bin/i686-linux-android-gcc --sysroot=/opt/android-ndk-r8e//platforms/android-9/arch-x86/ conftest.c -m32 -Wall -I. -I$(SRCPATH) -std=gnu99  -lffms2 -lstdc++ -L. -lavformat -lm -lz  -Wl,-rpath-link=/opt/android-ndk-r8e//platforms/android-9/arch-x86//usr/lib -L/opt/android-ndk-r8e//platforms/android-9/arch-x86//usr/lib  -lc -lm -ldl -llog -lm -o conftest
+conftest.c:1:18: error: ffms.h: No such file or directory
+conftest.c: In function 'main':
+conftest.c:2: warning: implicit declaration of function 'FFMS_DestroyVideoSource'
+--------------------------------------------------
+Failed program was:
+--------------------------------------------------
+#include <ffms.h>
+int main () { FFMS_DestroyVideoSource(0); return 0; }
+--------------------------------------------------
+checking for lsmash.h... no
+Failed commandline was:
+--------------------------------------------------
+/opt/android-ndk-r8e//toolchains/x86-4.4.3/prebuilt/darwin-x86_64/bin/i686-linux-android-gcc --sysroot=/opt/android-ndk-r8e//platforms/android-9/arch-x86/ conftest.c -m32 -Wall -I. -I$(SRCPATH) -std=gnu99  -llsmash  -Wl,-rpath-link=/opt/android-ndk-r8e//platforms/android-9/arch-x86//usr/lib -L/opt/android-ndk-r8e//platforms/android-9/arch-x86//usr/lib  -lc -lm -ldl -llog -lm -o conftest
+conftest.c:1:20: error: lsmash.h: No such file or directory
+--------------------------------------------------
+Failed program was:
+--------------------------------------------------
+#include <lsmash.h>
+int main () {  return 0; }
+--------------------------------------------------
+checking for -lz... yes
+checking for gpac/isomedia.h... no
+Failed commandline was:
+--------------------------------------------------
+/opt/android-ndk-r8e//toolchains/x86-4.4.3/prebuilt/darwin-x86_64/bin/i686-linux-android-gcc --sysroot=/opt/android-ndk-r8e//platforms/android-9/arch-x86/ conftest.c -m32 -Wall -I. -I$(SRCPATH) -std=gnu99 -lgpac_static -lz  -Wl,-rpath-link=/opt/android-ndk-r8e//platforms/android-9/arch-x86//usr/lib -L/opt/android-ndk-r8e//platforms/android-9/arch-x86//usr/lib  -lc -lm -ldl -llog -lm -o conftest
+conftest.c:1:27: error: gpac/isomedia.h: No such file or directory
+--------------------------------------------------
+Failed program was:
+--------------------------------------------------
+#include <gpac/isomedia.h>
+int main () {  return 0; }
+--------------------------------------------------
+checking for uint32_t test_vec __attribute__ ((vector_size (16))) = {0,1,2,3}; in stdint.h... yes
+checking for -fno-tree-vectorize... yes
+checking for fseeko(stdin,0,0); in stdio.h... yes
+checking for -Wshadow... yes
+checking for perl... yes
+
+platform:      X86
+system:        LINUX
+cli:           yes
+libx264:       internal
+shared:        no
+static:        yes
+asm:           no
+interlaced:    yes
+avs:           avxsynth
+lavf:          no
+ffms:          no
+mp4:           no
+gpl:           yes
+thread:        no
+opencl:        yes
+filters:       crop select_every 
+debug:         no
+gprof:         no
+strip:         no
+PIC:           no
+bit depth:     8
+chroma format: all

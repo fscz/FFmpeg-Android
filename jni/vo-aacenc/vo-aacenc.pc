@@ -1,0 +1,10 @@
+prefix=/Users/fschuetz/Dropbox/devel/android/FFMpeg/jni/vo-aacenc/../ffmpeg-build/armeabi-v7a-neon
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: VisualOn AAC Encoder
+Description: AAC codec library
+Version: 0.1.2
+Libs: -L${libdir} -lvo-aacenc
+Cflags: -I${includedir}

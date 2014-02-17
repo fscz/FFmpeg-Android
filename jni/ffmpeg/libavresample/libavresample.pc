@@ -1,0 +1,14 @@
+prefix=../ffmpeg-build/armeabi-v7a-neon
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+Name: libavresample
+Description: Libav audio resampling library
+Version: 1.1.0
+Requires: libavutil = 52.64.100
+Requires.private: 
+Conflicts:
+Libs: -L${libdir}  -lavresample -lvorbisenc -lvorbis -logg -lvo-amrwbenc -lvo-aacenc -L/Users/fschuetz/Dropbox/devel/android/FFMpeg/jni/libass/../ffmpeg-build/armeabi-v7a-neon/lib -L/Users/fschuetz/Dropbox/devel/android/FFMpeg/jni/fribidi/../ffmpeg-build/armeabi-v7a-neon/lib -L/Users/fschuetz/Dropbox/devel/android/FFMpeg/jni/freetype2/../ffmpeg-build/x86/lib -lass -lm -lfribidi -lfreetype -lm -lz -pthread -lgcc
+Libs.private: 
+Cflags: -I${includedir}

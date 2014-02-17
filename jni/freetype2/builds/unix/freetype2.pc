@@ -1,0 +1,12 @@
+prefix="/Users/fschuetz/Dropbox/devel/android/FFMpeg/jni/freetype2/../ffmpeg-build/x86"
+exec_prefix="/Users/fschuetz/Dropbox/devel/android/FFMpeg/jni/freetype2/../ffmpeg-build/x86"
+libdir="/Users/fschuetz/Dropbox/devel/android/FFMpeg/jni/freetype2/../ffmpeg-build/x86/lib"
+includedir="/Users/fschuetz/Dropbox/devel/android/FFMpeg/jni/freetype2/../ffmpeg-build/x86/include/freetype2"
+
+Name: FreeType 2
+Description: A free, high-quality, and portable font engine.
+Version: 17.1.11
+Requires:
+Libs: -L${libdir} -lfreetype
+Libs.private: -lz   
+Cflags: -I${includedir}

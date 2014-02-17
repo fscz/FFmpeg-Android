@@ -1,0 +1,150 @@
+libass (0.10.2)
+ * API additions and some ABI changes, bumped SONAME
+ * Expose header field for VSFilter color mangling (GC #87)
+ * Add functions for explicit scaling hints (GC #6)
+ * Add 'type' field to ASS_Image (GC #31)
+ * Workaround Freetype's font size grid-fitting where appropriate
+ * Apply blur to both glyph and border when using opaque box
+ * Parser bugfixes
+   * Parse angles in style as number
+   * Fix fallback event formats
+   * Make closing ')' optional for some tags
+   * Fix crazy VSFilter behaviour for \move (GC #90)
+   * Make \r fall back to line style (GC #104)
+   * Parse style name like VSFilter
+   * Ignore junk in nested \t tags
+   * Make \clip tag arguments mandatory
+ * Properly handle script and language in the HarfBuzz shaper
+ * Allow ASS_Track and ASS_Renderer to have different ASS_Library
+ * Fix stroking in some rare cases
+ * Correctly handle @font advance (GC #94)
+ * Fix ascent/descent for some fonts (GC #106)
+ * Fix ass_step_sub to not require sorted events
+ * Fix blur scaling
+ * Don't mutate input strings (GC #88)
+ * Remove/change some error messages
+ * Fix various small memory leaks
+
+libass (0.10.1)
+ * Fix letter spacing
+ * Add \rSTYLENAME syntax support (GC #43)
+ * Fix border generation and border style reset (GC #56)
+ * Fix various issues with bug-for-bug compatibility of
+   transformations (\fax, \fay, etc.) to VSFilter (GC #46, GC #42)
+ * Fix drawing parsing (GC #47)
+ * Various fixes to shaper (GC #54, GC #55, GC#59)
+ * Fix change detection
+ * Add ass_set_line_position API to set a vertical subtitle offset
+ * Fix scaling of drawing baseline offset (\pbo) values
+ * Fix skipping of zero-width characters for FriBiDi shaper
+ * Use LTR text base direction by default, similar to VSFilter
+
+libass (0.10.0)
+ * Bidirectional layout and Arabic shaping via FriBidi (GC #13)
+ * OpenType shaping via HarfBuzz-ng (GC #13)
+ * Add API for shaper configuration
+ * Add support for `Language' Script Info property, this can be used for
+   hinting the text language
+ * Vertical layout improvements
+   * Use `vert' and `vkna' OpenType features for vertical glyph variants
+   * Position rotated glyphs onto baseline
+ * Parse font encoding property for base text direction hinting
+ * Refactor cache system
+ * Use generic outlines in place of FreeType glyphs
+ * Direct outline bitmap rendering
+ * Fix whitespace trimming (GC #35)
+ * Do not render border if there's no shadow or glyph (GC #29)
+ * Adjust spacing after a italic to non-italic style change (GC #37)
+ * Fix fade timing
+ * Fix x positioning with borders (GC #27)
+ * Build system tweaks
+
+libass (0.9.12)
+ * Switch to permissive (ISC) license
+ * Support \fs+ and \fs- syntax for modifying font size
+ * Fix word-wrapping
+ * Improved charmap fallback matching
+ * Handle a few more VSFilter quirks correctly
+ * Add a sensible default style
+ * Fix compilation against libpng 1.5
+
+libass (0.9.11)
+ * Fix serious memory leaks
+ * Reduce frame/drawing initialization overhead
+
+libass (0.9.10)
+ * Basic (incorrect, but working) support for @font vertical text layout
+ * Fix multiple faces per font attachment
+ * charmap selection fixes
+ * Add ass_flush_events API function
+ * Improve fullname font matching
+ * Better PAR correction if text transforms are used
+ * Calculate drawing bounding box like VSFilter
+ * Performance improvements
+   * Cache vector clip masks
+   * Avoid unnecessary glyph copies
+ * Various rendering fixes
+
+libass (0.9.9)
+ * Parse numbers in a locale-independent way
+ * Remove support for freetype < 2.2.1, fontconfig < 2.4.1; this especially
+   means libass will not extract fonts into the file system anymore
+ * Disable script file size limit
+ * Match fonts against the full name ("name for humans")
+ * Reset clip mode after \iclip
+ * Improve VSFilter compatibility
+ * Update API documentation
+ * A couple of smaller fixes and cleanups
+
+libass (0.9.8)
+ * Support \q override tag
+ * Support wrap style 1 (i.e. wrap, but do not equalize line lengths)
+ * Support border style 3 (opaque box)
+ * Use the event bounding box (instead of vertical position and height) for
+   collision detection
+ * Embold glyphs if no bold variant is available, but was requested
+ * Modify \fax to be similar to VSFilter
+ * Trim spaces after line wrapping
+ * Fix border/shadow overlap combining in some cases
+ * Disable kerning by default.  Use "Kerning=yes" style override or
+   "Kerning: yes" in [Script Info] to enable it
+ * Slight bitmap handling optimizations
+ * Various bugfixes
+
+libass (0.9.7)
+ * Build system fixes
+ * Fixed cache lookup and overload problems
+ * All globals have been eliminated, libass is reentrant
+ * Dynamically allocate glyph and line buffers
+ * Fix up stroking of big borders
+ * Support empty lines (\N\N)
+ * Support for the following override tags:
+   \fax, \fay, \xshad, \yshad, \ybord, \xbord, \iclip, \u, \s, \p, \pbo
+ * Full subpixel accuracy for positioning
+ * PAR and rotation correction for EOSD rendering
+ * Drawing mode (including vector \clip and \iclip)
+ * Fixed a few memory leaks
+ * Removed MPlayer compatibility code
+ * Introduced message handling callback
+ * Various fixes to match VSFilter quirks and Windows font metrics
+ * Lots of bugfixes
+
+LibASS (0.9.6)
+ * Various fixes and updates to match VSFilter renderer.
+ * Support \blur tag and ScaledBordersAndShadow property.
+ * Fractional arguments and subpixel accuracy.
+ * Keep positions when pan-and-scan is used.
+ * Lots of bugfixes and other changes.
+
+LibASS (0.9.5)
+ * Support '=' and '.' in style name in arguments to ass_set_style_overrides().
+ * Allow overriding [Script Info] parameters with ass_set_style_overrides().
+ * Add workarounds for some buggy fonts.
+ * Remove buggy workarounds for some other fonts.
+ * Fixed ass_set_line_spacing() (was broken before).
+ * Negative margin sizes are now used for image cropping.
+ * Better handling of behind-the-camera objects.
+ * Case insensitive parsing of SSA/ASS section headers.
+ * Improved font matching.
+ * When 2 styles have the same name, the later one is used.
+ * Fixed several other bugs.

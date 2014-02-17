@@ -1,0 +1,1 @@
+/opt/boxen/homebrew/Cellar/libtool/2.4.2/share/libtool/config/ltmain.sh
