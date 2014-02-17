@@ -28,3 +28,13 @@ Using
 ==============
 It is an Android Library Project so you can import it into ADT and reference it
 from other projects.
+
+
+Examples
+==============
+- TrackDecoderController audioController = new TrackDecoderController(new FileInputStream("/path/to/your/mp3file"));
+- audioController.start();
+- audioController.stop();
+- for more fine grained control of audio decoding, check the classes in com.appunite.ffmpeg.decoding
+- see an example for using FFmpegPlayer at https://github.com/appunite/AndroidFFmpeg
+
