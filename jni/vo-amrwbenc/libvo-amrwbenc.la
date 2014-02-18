@@ -38,4 +38,4 @@ dlopen=''
 dlpreopen=''
 
 # Directory that this library needs to be installed in:
-libdir='/Users/fschuetz/Dropbox/devel/android/FFMpeg/jni/vo-amrwbenc/../ffmpeg-build/armeabi-v7a-neon/lib'
+libdir='/Users/fschuetz/Dropbox/devel/android/FFmpeg-Android/jni/vo-amrwbenc/../ffmpeg-build/armeavi-v7a-neon/lib'

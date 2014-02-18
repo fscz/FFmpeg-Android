@@ -15,7 +15,8 @@
 #include "jni-protocol.h"
 #include "audiodecoder.h"
 
-#define BUFFER_SIZE 4096
+#define READ_BUFFER_SIZE 2048
+#define INITIAL_WRITE_BUFFER_SIZE 4096
 #define LOG_TAG "audiodecoder.c"
 
 #define LOGI(...) {__android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__);}
@@ -128,6 +129,13 @@ int resample_and_write_frame(AudioDecoderCtx* dec) {
 		err = av_samples_alloc(dec->dst_samples, &dec->dst_line_size, dec->dst_nb_channels,
 										   dec->dst_nb_samples, AV_SAMPLE_FMT_S16, 1);
 		if (err < 0) return err;
+
+		(*dec->jnictx->env)->DeleteLocalRef(dec->jnictx->env, dec->jnictx->writeBuffer);
+		dec->jnictx->writeBuffer = (*dec->jnictx->env)->NewByteArray(dec->jnictx->env, dec->dst_line_size);
+		if (!dec->jnictx->writeBuffer) {
+			return -1;
+		}
+
 		dec->max_dst_nb_samples = dec->dst_nb_samples;
 	}
 	err = swr_convert(
@@ -221,8 +229,8 @@ void jni_audio_converter_start_decoding(JNIEnv *env, jobject thiz, jobject encod
 
 	JNIContext jnictx = {
 		env,
-		(*env)->NewByteArray(env, BUFFER_SIZE),
-		(*env)->NewByteArray(env, 8*BUFFER_SIZE),
+		(*env)->NewByteArray(env, READ_BUFFER_SIZE),
+		(*env)->NewByteArray(env, INITIAL_WRITE_BUFFER_SIZE),
 		encoderDataFeed,
 		global_ctx.feed_class,
 		global_ctx.read,
@@ -238,7 +246,7 @@ void jni_audio_converter_start_decoding(JNIEnv *env, jobject thiz, jobject encod
 	av_register_all();
 	avcodec_register_all();
 
-	char *ioctx_buffer = av_malloc(BUFFER_SIZE);
+	char *ioctx_buffer = av_malloc(READ_BUFFER_SIZE);
 	if (!ioctx_buffer) {
 		LOGE("Could not allocate read buffer: %s", av_err2str(err));
 		goto end;
@@ -248,7 +256,7 @@ void jni_audio_converter_start_decoding(JNIEnv *env, jobject thiz, jobject encod
 	fctx = avformat_alloc_context();
 	ioctx = avio_alloc_context(
 			ioctx_buffer,
-			BUFFER_SIZE,
+			READ_BUFFER_SIZE,
 			0,
 			&jnictx,
 			audio_decoder_read,
@@ -306,11 +314,12 @@ void jni_audio_converter_start_decoding(JNIEnv *env, jobject thiz, jobject encod
 			NULL,
 			&swr,
 			&audio_decoder_write,
-			1024,
+			INITIAL_WRITE_BUFFER_SIZE / (2 * av_get_channel_layout_nb_channels(AV_CH_LAYOUT_STEREO)),
 			av_get_channel_layout_nb_channels(AV_CH_LAYOUT_STEREO),
 			44100,
 			0,
-			av_rescale_rnd(1024, 44100, 44100, AV_ROUND_UP),
+			INITIAL_WRITE_BUFFER_SIZE / (2 * av_get_channel_layout_nb_channels(AV_CH_LAYOUT_STEREO)),
+			//av_rescale_rnd(1024, 44100, 44100, AV_ROUND_UP),
 			dst_samples
 	};
 

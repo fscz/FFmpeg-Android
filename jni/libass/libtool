@@ -164,7 +164,7 @@ lock_old_archive_extraction=no
 LTCC="/opt/android-ndk-r8e/toolchains/arm-linux-androideabi-4.7/prebuilt/darwin-x86_64/bin/arm-linux-androideabi-gcc --sysroot=/opt/android-ndk-r8e/platforms/android-9/arch-arm/"
 
 # LTCC compiler flags.
-LTCFLAGS="-mfloat-abi=softfp -mfpu=neon -marm -march=armv7-a -mtune=cortex-a8 -mthumb -D__thumb__  -I/Users/fschuetz/Dropbox/devel/android/FFMpeg/jni/freetype2/../ffmpeg-build/x86/include/freetype2  -I/Users/fschuetz/Dropbox/devel/android/FFMpeg/jni/fribidi/../ffmpeg-build/armeabi-v7a-neon/include/fribidi "
+LTCFLAGS="-mfloat-abi=softfp -mfpu=neon -marm -march=armv7-a -mtune=cortex-a8 -mthumb -D__thumb__  -I/Users/fschuetz/Dropbox/devel/android/FFmpeg-Android/jni/ffmpeg-build/armeabi-v7a/include/freetype2 -I/Users/fschuetz/Dropbox/devel/android/FFMpeg/jni/freetype2/../ffmpeg-build/x86/include/freetype2  -I/Users/fschuetz/Dropbox/devel/android/FFmpeg-Android/jni/fribidi/../ffmpeg-build/armeavi-v7a-neon/include/fribidi "
 
 # Take the output of nm and produce a listing of raw symbols and C names.
 global_symbol_pipe="sed -n -e 's/^.*[	 ]\\([ABCDGIRSTW][ABCDGIRSTW]*\\)[	 ][	 ]*\\([_A-Za-z][_A-Za-z0-9]*\\)\$/\\1 \\2 \\2/p' | sed '/ __gnu_lto/d'"

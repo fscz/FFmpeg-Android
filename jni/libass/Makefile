@@ -224,23 +224,23 @@ distuninstallcheck_listfiles = find . -type f -print
 am__distuninstallcheck_listfiles = $(distuninstallcheck_listfiles) \
   | sed 's|^\./|$(prefix)/|' | grep -v '$(infodir)/dir$$'
 distcleancheck_listfiles = find . -type f -print
-ACLOCAL = ${SHELL} /Users/fschuetz/Dropbox/devel/android/FFMpeg/jni/libass/missing aclocal-1.14
+ACLOCAL = ${SHELL} /Users/fschuetz/Dropbox/devel/android/FFmpeg-Android/jni/libass/missing aclocal-1.14
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 0
 AR = /opt/android-ndk-r8e/toolchains/arm-linux-androideabi-4.7/prebuilt/darwin-x86_64/bin/arm-linux-androideabi-ar
 ASFLAGS = 
-AUTOCONF = ${SHELL} /Users/fschuetz/Dropbox/devel/android/FFMpeg/jni/libass/missing autoconf
-AUTOHEADER = ${SHELL} /Users/fschuetz/Dropbox/devel/android/FFMpeg/jni/libass/missing autoheader
-AUTOMAKE = ${SHELL} /Users/fschuetz/Dropbox/devel/android/FFMpeg/jni/libass/missing automake-1.14
+AUTOCONF = ${SHELL} /Users/fschuetz/Dropbox/devel/android/FFmpeg-Android/jni/libass/missing autoconf
+AUTOHEADER = ${SHELL} /Users/fschuetz/Dropbox/devel/android/FFmpeg-Android/jni/libass/missing autoheader
+AUTOMAKE = ${SHELL} /Users/fschuetz/Dropbox/devel/android/FFmpeg-Android/jni/libass/missing automake-1.14
 AWK = awk
 CC = /opt/android-ndk-r8e/toolchains/arm-linux-androideabi-4.7/prebuilt/darwin-x86_64/bin/arm-linux-androideabi-gcc --sysroot=/opt/android-ndk-r8e/platforms/android-9/arch-arm/
 CCAS = /opt/android-ndk-r8e/toolchains/arm-linux-androideabi-4.7/prebuilt/darwin-x86_64/bin/arm-linux-androideabi-gcc --sysroot=/opt/android-ndk-r8e/platforms/android-9/arch-arm/
 CCASDEPMODE = depmode=none
-CCASFLAGS = -mfloat-abi=softfp -mfpu=neon -marm -march=armv7-a -mtune=cortex-a8 -mthumb -D__thumb__ 
+CCASFLAGS = -mfloat-abi=softfp -mfpu=neon -marm -march=armv7-a -mtune=cortex-a8 -mthumb -D__thumb__  -I/Users/fschuetz/Dropbox/devel/android/FFmpeg-Android/jni/ffmpeg-build/armeabi-v7a/include/freetype2
 CCDEPMODE = depmode=none
-CFLAGS = -mfloat-abi=softfp -mfpu=neon -marm -march=armv7-a -mtune=cortex-a8 -mthumb -D__thumb__  -I/Users/fschuetz/Dropbox/devel/android/FFMpeg/jni/freetype2/../ffmpeg-build/x86/include/freetype2  -I/Users/fschuetz/Dropbox/devel/android/FFMpeg/jni/fribidi/../ffmpeg-build/armeabi-v7a-neon/include/fribidi 
+CFLAGS = -mfloat-abi=softfp -mfpu=neon -marm -march=armv7-a -mtune=cortex-a8 -mthumb -D__thumb__  -I/Users/fschuetz/Dropbox/devel/android/FFmpeg-Android/jni/ffmpeg-build/armeabi-v7a/include/freetype2 -I/Users/fschuetz/Dropbox/devel/android/FFMpeg/jni/freetype2/../ffmpeg-build/x86/include/freetype2  -I/Users/fschuetz/Dropbox/devel/android/FFmpeg-Android/jni/fribidi/../ffmpeg-build/armeavi-v7a-neon/include/fribidi 
 CPP = /opt/android-ndk-r8e/toolchains/arm-linux-androideabi-4.7/prebuilt/darwin-x86_64/bin/arm-linux-androideabi-gcc --sysroot=/opt/android-ndk-r8e/platforms/android-9/arch-arm/ -E
-CPPFLAGS = -mfloat-abi=softfp -mfpu=neon -marm -march=armv7-a -mtune=cortex-a8 -mthumb -D__thumb__ 
+CPPFLAGS = -mfloat-abi=softfp -mfpu=neon -marm -march=armv7-a -mtune=cortex-a8 -mthumb -D__thumb__  -I/Users/fschuetz/Dropbox/devel/android/FFmpeg-Android/jni/ffmpeg-build/armeabi-v7a/include/freetype2
 CYGPATH_W = echo
 DEFS = -DHAVE_CONFIG_H
 DEPDIR = .deps
@@ -259,8 +259,8 @@ FONTCONFIG_CFLAGS =
 FONTCONFIG_LIBS = 
 FREETYPE_CFLAGS = -I/Users/fschuetz/Dropbox/devel/android/FFMpeg/jni/freetype2/../ffmpeg-build/x86/include/freetype2 
 FREETYPE_LIBS = -L/Users/fschuetz/Dropbox/devel/android/FFMpeg/jni/freetype2/../ffmpeg-build/x86/lib -lfreetype 
-FRIBIDI_CFLAGS = -I/Users/fschuetz/Dropbox/devel/android/FFMpeg/jni/fribidi/../ffmpeg-build/armeabi-v7a-neon/include/fribidi 
-FRIBIDI_LIBS = -L/Users/fschuetz/Dropbox/devel/android/FFMpeg/jni/fribidi/../ffmpeg-build/armeabi-v7a-neon/lib -lfribidi 
+FRIBIDI_CFLAGS = -I/Users/fschuetz/Dropbox/devel/android/FFmpeg-Android/jni/fribidi/../ffmpeg-build/armeavi-v7a-neon/include/fribidi 
+FRIBIDI_LIBS = -L/Users/fschuetz/Dropbox/devel/android/FFmpeg-Android/jni/fribidi/../ffmpeg-build/armeavi-v7a-neon/lib -lfribidi 
 GREP = /usr/bin/grep
 HARFBUZZ_CFLAGS = 
 HARFBUZZ_LIBS = 
@@ -270,16 +270,16 @@ INSTALL_PROGRAM = ${INSTALL}
 INSTALL_SCRIPT = ${INSTALL}
 INSTALL_STRIP_PROGRAM = $(install_sh) -c -s
 LD = /opt/android-ndk-r8e/toolchains/arm-linux-androideabi-4.7/prebuilt/darwin-x86_64/arm-linux-androideabi/bin/ld
-LDFLAGS = -Wl,-rpath-link=/opt/android-ndk-r8e/platforms/android-9/arch-arm//usr/lib -L/opt/android-ndk-r8e/platforms/android-9/arch-arm//usr/lib -lc -lm -ldl -llog
+LDFLAGS =  -Wl,-rpath-link=/opt/android-ndk-r8e/platforms/android-9/arch-arm//usr/lib -L/opt/android-ndk-r8e/platforms/android-9/arch-arm//usr/lib -lc -lm -ldl -llog
 LIBOBJS = 
 LIBPNG_CFLAGS = 
 LIBPNG_LIBS = 
-LIBS = -lm  -L/Users/fschuetz/Dropbox/devel/android/FFMpeg/jni/freetype2/../ffmpeg-build/x86/lib -lfreetype  -L/Users/fschuetz/Dropbox/devel/android/FFMpeg/jni/fribidi/../ffmpeg-build/armeabi-v7a-neon/lib -lfribidi 
+LIBS = -lm  -L/Users/fschuetz/Dropbox/devel/android/FFMpeg/jni/freetype2/../ffmpeg-build/x86/lib -lfreetype  -L/Users/fschuetz/Dropbox/devel/android/FFmpeg-Android/jni/fribidi/../ffmpeg-build/armeavi-v7a-neon/lib -lfribidi 
 LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LIPO = 
 LN_S = ln -s
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} /Users/fschuetz/Dropbox/devel/android/FFMpeg/jni/libass/missing makeinfo
+MAKEINFO = ${SHELL} /Users/fschuetz/Dropbox/devel/android/FFmpeg-Android/jni/libass/missing makeinfo
 MANIFEST_TOOL = :
 MKDIR_P = /usr/local/bin/mkdir -p
 NM = /opt/android-ndk-r8e/toolchains/arm-linux-androideabi-4.7/prebuilt/darwin-x86_64/bin/arm-linux-androideabi-nm
@@ -297,8 +297,8 @@ PACKAGE_URL =
 PACKAGE_VERSION = 0.10.2
 PATH_SEPARATOR = :
 PKG_CONFIG = /opt/boxen/homebrew/bin/pkg-config
-PKG_CONFIG_LIBDIR = /Users/fschuetz/Dropbox/devel/android/FFMpeg/jni/libass/../ffmpeg-build/armeabi-v7a-neon/lib/pkgconfig/
-PKG_CONFIG_PATH = /Users/fschuetz/Dropbox/devel/android/FFMpeg/jni/libass/../ffmpeg-build/armeabi-v7a-neon/lib/pkgconfig/
+PKG_CONFIG_LIBDIR = /Users/fschuetz/Dropbox/devel/android/FFmpeg-Android/jni/libass/../ffmpeg-build/armeavi-v7a-neon/lib/pkgconfig/
+PKG_CONFIG_PATH = /Users/fschuetz/Dropbox/devel/android/FFmpeg-Android/jni/libass/../ffmpeg-build/armeavi-v7a-neon/lib/pkgconfig/
 PKG_LIBS_DEFAULT = -lm
 PKG_LIBS_PRIVATE = 
 PKG_REQUIRES_DEFAULT = fribidi >= 0.19.0, freetype2 >= 9.10.3
@@ -310,10 +310,10 @@ SHELL = /bin/sh
 STRIP = /opt/android-ndk-r8e/toolchains/arm-linux-androideabi-4.7/prebuilt/darwin-x86_64/bin/arm-linux-androideabi-strip
 VERSION = 0.10.2
 YASM_CHECK = 
-abs_builddir = /Users/fschuetz/Dropbox/devel/android/FFMpeg/jni/libass
-abs_srcdir = /Users/fschuetz/Dropbox/devel/android/FFMpeg/jni/libass
-abs_top_builddir = /Users/fschuetz/Dropbox/devel/android/FFMpeg/jni/libass
-abs_top_srcdir = /Users/fschuetz/Dropbox/devel/android/FFMpeg/jni/libass
+abs_builddir = /Users/fschuetz/Dropbox/devel/android/FFmpeg-Android/jni/libass
+abs_srcdir = /Users/fschuetz/Dropbox/devel/android/FFmpeg-Android/jni/libass
+abs_top_builddir = /Users/fschuetz/Dropbox/devel/android/FFmpeg-Android/jni/libass
+abs_top_srcdir = /Users/fschuetz/Dropbox/devel/android/FFmpeg-Android/jni/libass
 ac_ct_AR = 
 ac_ct_CC = 
 ac_ct_DUMPBIN = 
@@ -342,7 +342,7 @@ host_vendor = unknown
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /Users/fschuetz/Dropbox/devel/android/FFMpeg/jni/libass/install-sh
+install_sh = ${SHELL} /Users/fschuetz/Dropbox/devel/android/FFmpeg-Android/jni/libass/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -351,7 +351,7 @@ mandir = ${datarootdir}/man
 mkdir_p = $(MKDIR_P)
 oldincludedir = /usr/include
 pdfdir = ${docdir}
-prefix = /Users/fschuetz/Dropbox/devel/android/FFMpeg/jni/libass/../ffmpeg-build/armeabi-v7a-neon
+prefix = /Users/fschuetz/Dropbox/devel/android/FFmpeg-Android/jni/libass/../ffmpeg-build/armeavi-v7a-neon
 program_transform_name = s,x,x,
 psdir = ${docdir}
 sbindir = ${exec_prefix}/sbin

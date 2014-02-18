@@ -21,6 +21,14 @@ if [ "$NDK" = "" ]; then
 	exit 1
 fi
 
+if [ "$NDK_ARCH" = "" ]; then
+	echo NDK_ARCH variable not set, exiting
+	echo "Use: export NDK_ARCH= for example: darwin-x86_64"
+	echo "Check your $NDK/toolchains/*/prebuilt/ directory"
+	exit 1
+fi
+
+
 OS=`uname -s | tr '[A-Z]' '[a-z]'`
 function build_x264
 {
@@ -100,7 +108,7 @@ function build_vorbis
 	export STRIP="${CROSS_COMPILE}strip"
 	export RANLIB="${CROSS_COMPILE}ranlib"
 	export AR="${CROSS_COMPILE}ar"
-	export LDFLAGS="-Wl,-rpath-link=$PLATFORM/usr/lib -L$PLATFORM/usr/lib -lc -lm -ldl -llog"
+	export LDFLAGS="-Wl,-rpath-link=$PLATFORM/usr/lib -L$PLATFORM/usr/lib -lc -lm -ldl -llog"    
 
 	cd libvorbis
 	./configure \
@@ -188,7 +196,7 @@ function build_aac
 	make -j4 install || exit 1
 	cd ..
 }
-function build_freetype2
+function build_freetype
 {
 	PLATFORM=$NDK/platforms/$PLATFORM_VERSION/arch-$ARCH/
 	export PATH=${PATH}:$PREBUILT/bin/
@@ -229,7 +237,7 @@ function build_ass
 	PLATFORM=$NDK/platforms/$PLATFORM_VERSION/arch-$ARCH/
 	export PATH=${PATH}:$PREBUILT/bin/
 	CROSS_COMPILE=$PREBUILT/bin/$EABIARCH-
-	CFLAGS="$OPTIMIZE_CFLAGS"
+	CFLAGS="$OPTIMIZE_CFLAGS -I$(pwd)/ffmpeg-build/$TARGET/include/freetype2"
 #CFLAGS=" -I$ARM_INC -fpic -DANDROID -fpic -mthumb-interwork -ffunction-sections -funwind-tables -fstack-protector -fno-short-enums -D__ARM_ARCH_5__ -D__ARM_ARCH_5T__ -D__ARM_ARCH_5E__ -D__ARM_ARCH_5TE__  -Wno-psabi -march=armv5te -mtune=xscale -msoft-float -mthumb -Os -fomit-frame-pointer -fno-strict-aliasing -finline-limit=64 -DANDROID  -Wa,--noexecstack -MMD -MP "
 	export CPPFLAGS="$CFLAGS"
 	export CFLAGS="$CFLAGS"
@@ -240,7 +248,8 @@ function build_ass
 	export STRIP="${CROSS_COMPILE}strip"
 	export RANLIB="${CROSS_COMPILE}ranlib"
 	export AR="${CROSS_COMPILE}ar"
-	export LDFLAGS="-Wl,-rpath-link=$PLATFORM/usr/lib -L$PLATFORM/usr/lib -lc -lm -ldl -llog"
+	export LDFLAGS=" -Wl,-rpath-link=$PLATFORM/usr/lib -L$PLATFORM/usr/lib -lc -lm -ldl -llog"
+
 
 	cd libass
 	export PKG_CONFIG_LIBDIR=$(pwd)/$PREFIX/lib/pkgconfig/
@@ -269,7 +278,7 @@ function build_ass
 
 
 	make clean || exit 1
-	make V=1 -j4 install || exit 1
+	make -j4 V=1  install || exit 1
 	cd ..
 }
 function build_fribidi
@@ -475,7 +484,7 @@ function build_all {
     build_amr
     build_aac
     build_fribidi
-    build_freetype2
+    build_freetype
     build_ass
     build_ffmpeg
     build_one
@@ -485,14 +494,14 @@ function build_all {
 
 ##GLOBAL
 NDK_TOOLCHAIN=4.7
-NDK_ARCH=darwin-x86_64
 
 
 #x86
 EABIARCH=i686-linux-android
 ARCH=x86
+TARGET=x86
 OPTIMIZE_CFLAGS="-m32"
-PREFIX=../ffmpeg-build/x86
+PREFIX="../ffmpeg-build/$ARCH"
 OUT_LIBRARY=$PREFIX/libffmpeg.so
 ADDITIONAL_CONFIGURE_FLAG="--disable-asm"
 ADDITIONAL_FFMPEG_FLAG="--cpu=$CPU"
@@ -504,8 +513,9 @@ build_all
 #mips
 EABIARCH=mipsel-linux-android
 ARCH=mips
+TARGET=mips
 OPTIMIZE_CFLAGS="-EL -march=mips32 -mips32 -mhard-float"
-PREFIX=../ffmpeg-build/mips
+PREFIX="../ffmpeg-build/$ARCH"
 OUT_LIBRARY=$PREFIX/libffmpeg.so
 ADDITIONAL_CONFIGURE_FLAG="--disable-mips32r2"
 ADDITIONAL_FFMPEG_FLAG=
@@ -518,6 +528,7 @@ build_all
 EABIARCH=arm-linux-androideabi
 ARCH=arm
 CPU=armv7-a
+TARGET=armeabi-v7a
 OPTIMIZE_CFLAGS="-mfloat-abi=softfp -mfpu=vfpv3-d16 -marm -march=$CPU "
 PREFIX=../ffmpeg-build/armeabi-v7a
 OUT_LIBRARY=$PREFIX/libffmpeg.so
@@ -532,8 +543,9 @@ build_all
 EABIARCH=arm-linux-androideabi
 ARCH=arm
 CPU=armv7-a
+TARGET=armeabi-v7a
 OPTIMIZE_CFLAGS="-mfloat-abi=softfp -mfpu=neon -marm -march=$CPU -mtune=cortex-a8 -mthumb -D__thumb__ "
-PREFIX=../ffmpeg-build/armeabi-v7a-neon
+PREFIX="../ffmpeg-build/armeavi-v7a-neon"
 OUT_LIBRARY=../ffmpeg-build/armeabi-v7a/libffmpeg-neon.so
 ADDITIONAL_CONFIGURE_FLAG="--enable-neon"
 ADDITIONAL_FFMPEG_FLAG="--cpu=$CPU"

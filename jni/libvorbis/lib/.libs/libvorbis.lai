@@ -17,7 +17,7 @@ old_library='libvorbis.a'
 inherited_linker_flags=''
 
 # Libraries that this one depends upon.
-dependency_libs=' -L/opt/android-ndk-r8e/platforms/android-9/arch-arm//usr/lib -L/Users/fschuetz/Dropbox/devel/android/FFMpeg/jni/libogg/../ffmpeg-build/armeabi-v7a/lib /Users/fschuetz/Dropbox/devel/android/FFMpeg/jni/libogg/../ffmpeg-build/armeabi-v7a/lib/libogg.la -lgcc -lc -lm -ldl -llog'
+dependency_libs=' -lgcc -L/opt/android-ndk-r8e/platforms/android-9/arch-arm//usr/lib -lc -ldl -llog -lm -L/usr/local/lib /usr/local/lib/libogg.la -L/opt/boxen/homebrew/lib'
 
 # Names of additional weak libraries provided by this library
 weak_library_names=''
@@ -38,4 +38,4 @@ dlopen=''
 dlpreopen=''
 
 # Directory that this library needs to be installed in:
-libdir='/Users/fschuetz/Dropbox/devel/android/FFMpeg/jni/libvorbis/../ffmpeg-build/armeabi-v7a-neon/lib'
+libdir='/Users/fschuetz/Dropbox/devel/android/FFmpeg-Android/jni/libvorbis/../ffmpeg-build/armeavi-v7a-neon/lib'

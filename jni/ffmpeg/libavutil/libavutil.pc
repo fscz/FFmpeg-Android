@@ -1,4 +1,4 @@
-prefix=../ffmpeg-build/armeabi-v7a-neon
+prefix=../ffmpeg-build/armeavi-v7a-neon
 exec_prefix=${prefix}
 libdir=${prefix}/lib
 includedir=${prefix}/include

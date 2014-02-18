@@ -1,5 +1,5 @@
 libavcodec/libvo-amrwbenc.o: libavcodec/libvo-amrwbenc.c \
- ../ffmpeg-build/armeabi-v7a-neon/include/vo-amrwbenc/enc_if.h \
+ ../ffmpeg-build/armeavi-v7a-neon/include/vo-amrwbenc/enc_if.h \
  libavutil/avstring.h libavutil/attributes.h libavutil/internal.h \
  config.h libavutil/timer.h libavutil/log.h libavutil/avutil.h \
  libavutil/common.h libavutil/version.h libavutil/macros.h \

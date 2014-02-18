@@ -1,4 +1,4 @@
-prefix=/Users/fschuetz/Dropbox/devel/android/FFMpeg/jni/vo-amrwbenc/../ffmpeg-build/armeabi-v7a-neon
+prefix=/Users/fschuetz/Dropbox/devel/android/FFmpeg-Android/jni/vo-amrwbenc/../ffmpeg-build/armeavi-v7a-neon
 exec_prefix=${prefix}
 libdir=${exec_prefix}/lib
 includedir=${prefix}/include

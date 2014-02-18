@@ -1,9 +1,9 @@
 libavcodec/libvorbisdec.o: libavcodec/libvorbisdec.c \
- ../ffmpeg-build/armeabi-v7a-neon/include/vorbis/vorbisenc.h \
- ../ffmpeg-build/armeabi-v7a-neon/include/vorbis/codec.h \
- ../ffmpeg-build/armeabi-v7a-neon/include/ogg/ogg.h \
- ../ffmpeg-build/armeabi-v7a-neon/include/ogg/os_types.h \
- ../ffmpeg-build/armeabi-v7a-neon/include/ogg/config_types.h \
+ ../ffmpeg-build/armeavi-v7a-neon/include/vorbis/vorbisenc.h \
+ ../ffmpeg-build/armeavi-v7a-neon/include/vorbis/codec.h \
+ ../ffmpeg-build/armeavi-v7a-neon/include/ogg/ogg.h \
+ ../ffmpeg-build/armeavi-v7a-neon/include/ogg/os_types.h \
+ ../ffmpeg-build/armeavi-v7a-neon/include/ogg/config_types.h \
  libavcodec/avcodec.h libavutil/samplefmt.h libavutil/avutil.h \
  libavutil/common.h libavutil/attributes.h libavutil/version.h \
  libavutil/macros.h libavutil/avconfig.h config.h libavutil/intmath.h \

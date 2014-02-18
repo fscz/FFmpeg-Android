@@ -48,7 +48,7 @@ DISTCLEAN += $(OBJ_BUILD)/config.cache    \
 
 # Standard installation variables.
 #
-prefix       := /Users/fschuetz/Dropbox/devel/android/FFMpeg/jni/freetype2/../ffmpeg-build/armeabi-v7a-neon
+prefix       := /Users/fschuetz/Dropbox/devel/android/FFmpeg-Android/jni/freetype2/../ffmpeg-build/armeavi-v7a-neon
 exec_prefix  := ${prefix}
 libdir       := ${exec_prefix}/lib
 bindir       := ${exec_prefix}/bin

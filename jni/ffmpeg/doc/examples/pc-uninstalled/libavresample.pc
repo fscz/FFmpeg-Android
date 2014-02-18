@@ -8,5 +8,5 @@ Description: Libav audio resampling library
 Version: 1.1.0
 Requires: libavutil = 52.64.100
 Conflicts:
-Libs: -L${libdir} -Wl,-rpath,${libdir} -lavresample -lvorbisenc -lvorbis -logg -lvo-amrwbenc -lvo-aacenc -L/Users/fschuetz/Dropbox/devel/android/FFMpeg/jni/libass/../ffmpeg-build/armeabi-v7a-neon/lib -L/Users/fschuetz/Dropbox/devel/android/FFMpeg/jni/fribidi/../ffmpeg-build/armeabi-v7a-neon/lib -L/Users/fschuetz/Dropbox/devel/android/FFMpeg/jni/freetype2/../ffmpeg-build/x86/lib -lass -lm -lfribidi -lfreetype -lm -lz -pthread -lgcc
+Libs: -L${libdir} -Wl,-rpath,${libdir} -lavresample -lvorbisenc -lvorbis -logg -lvo-amrwbenc -lvo-aacenc -L/Users/fschuetz/Dropbox/devel/android/FFmpeg-Android/jni/libass/../ffmpeg-build/armeavi-v7a-neon/lib -L/Users/fschuetz/Dropbox/devel/android/FFmpeg-Android/jni/fribidi/../ffmpeg-build/armeavi-v7a-neon/lib -L/Users/fschuetz/Dropbox/devel/android/FFMpeg/jni/freetype2/../ffmpeg-build/x86/lib -lass -lm -lfribidi -lfreetype -lm -lz -pthread -lgcc
 Cflags: -I${includedir}

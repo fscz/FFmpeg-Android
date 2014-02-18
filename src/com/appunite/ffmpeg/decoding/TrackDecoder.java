@@ -5,7 +5,6 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 import android.media.AudioTrack;
-import android.util.Log;
 
 public class TrackDecoder extends Decoder {
 	

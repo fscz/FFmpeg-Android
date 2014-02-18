@@ -1,10 +1,10 @@
 libavcodec/libvo-aacenc.o: libavcodec/libvo-aacenc.c \
- ../ffmpeg-build/armeabi-v7a-neon/include/vo-aacenc/voAAC.h \
- ../ffmpeg-build/armeabi-v7a-neon/include/vo-aacenc/voAudio.h \
- ../ffmpeg-build/armeabi-v7a-neon/include/vo-aacenc/voIndex.h \
- ../ffmpeg-build/armeabi-v7a-neon/include/vo-aacenc/voType.h \
- ../ffmpeg-build/armeabi-v7a-neon/include/vo-aacenc/voMem.h \
- ../ffmpeg-build/armeabi-v7a-neon/include/vo-aacenc/cmnMemory.h \
+ ../ffmpeg-build/armeavi-v7a-neon/include/vo-aacenc/voAAC.h \
+ ../ffmpeg-build/armeavi-v7a-neon/include/vo-aacenc/voAudio.h \
+ ../ffmpeg-build/armeavi-v7a-neon/include/vo-aacenc/voIndex.h \
+ ../ffmpeg-build/armeavi-v7a-neon/include/vo-aacenc/voType.h \
+ ../ffmpeg-build/armeavi-v7a-neon/include/vo-aacenc/voMem.h \
+ ../ffmpeg-build/armeavi-v7a-neon/include/vo-aacenc/cmnMemory.h \
  libavcodec/avcodec.h libavutil/samplefmt.h libavutil/avutil.h \
  libavutil/common.h libavutil/attributes.h libavutil/version.h \
  libavutil/macros.h libavutil/avconfig.h config.h libavutil/intmath.h \
