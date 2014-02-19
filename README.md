@@ -1,7 +1,7 @@
 FFmpeg-Android
 ==============
 
-A videoplayer and streaming audio decoder that outputs pcm or directly writes to Android/AudioTrack (based on https://github.com/appunite/AndroidFFmpeg)
+A videoplayer, streaming audioplayer and streaming audio decoder that outputs pcm or directly writes to Android/AudioTrack (based on https://github.com/appunite/AndroidFFmpeg)
 
 Used Sources
 ==============
@@ -24,17 +24,20 @@ Building
 Repeat steps 4 and 5 after making changes to the source 
 
 
-Using
+Usage
 ==============
-It is an Android Library Project so you can import it into ADT and reference it
-from other projects.
+- It is an Android Library Project so you can import it into ADT and reference it
+from other projects
+- Check classes in com.appunite.ffmpeg.audio
+- TrackDecoder accepts an InputStream (some audio format) and an Android AudioTrack and will write pcm data directly to the AudioTrack
+- StreamDecoder is a convenience class and accepts an InputStream and return an InputStream of PCM data. This is achieved by using the com.appunite.ffmpeg.audio.Buffer class (see there for details). Using this class should be sufficient (performance-wise) for tasks like writing pcm data to a file or some simple audio processing. If you want to add more heavy lifting to the audio processing pipeline, you should subclass com.appunite.ffmpeg.audio.Decoder and thus avoid some of the copying and shifting that Buffer has to do. Check StreamDecoder/TrackDecoder to see, how you can do that.
 
 
 Examples
 ==============
-- TrackDecoderController audioController = new TrackDecoderController(new FileInputStream("/path/to/your/mp3file"));
-- audioController.start();
-- audioController.stop();
-- for more fine grained control of audio decoding, check the classes in com.appunite.ffmpeg.decoding
+- AudioPlayer audioPlayer = new AudioPlayer(new FileInputStream("/path/to/your/mp3file"));
+- audioPlayer.play();
+- audioPlayer.stop();
+- for more fine grained control of audio decoding, check the classes in com.appunite.ffmpeg.audio
 - see an example for using FFmpegPlayer at https://github.com/appunite/AndroidFFmpeg
 
