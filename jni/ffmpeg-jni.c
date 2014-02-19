@@ -93,7 +93,7 @@ jint JNICALL JNI_OnLoad(JavaVM* vm, void* reserved)
 		goto bail;
 	}
 
-	jclass encoderDataFeedClass = (*env)->FindClass(env, "com/appunite/ffmpeg/decoding/DataFeed");
+	jclass encoderDataFeedClass = (*env)->FindClass(env, "com/appunite/ffmpeg/audio/DataFeed");
 	jmethodID readMethodId = (*env)->GetMethodID(env, encoderDataFeedClass, "read", "([B)I");
 	jmethodID writeMethodId = (*env)->GetMethodID(env, encoderDataFeedClass, "write", "([BI)I");
 	jmethodID startMethodId = (*env)->GetMethodID(env, encoderDataFeedClass, "start", "()V");
